@@ -16,3 +16,164 @@ body {
   font-size: 65px;
   text-align: center;
 }
+
+.drumkit-visual {
+  margin: 10px;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cymbal {
+  position: absolute;
+  left: -185px;
+  top: -220px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.cymbal-main-active {
+  position: absolute;
+  transform: rotate(20deg);
+}
+
+.cymbal-main {
+  position: absolute;
+  background: gold;
+  border: 3px solid black;
+  rotate: 35deg;
+  width: 120px;
+  height: 5px;
+  border-radius: 15px;
+  top: -175px;
+  left: -20px;
+  transition: transform 0.2s ease;
+  z-index: 50;
+}
+
+.cymbal-main.rotated {
+  transform: rotate(20deg);
+}
+
+.cymbal-arm {
+  position: absolute;
+  background: silver;
+  border: 3px solid black;
+  rotate: 35deg;
+  width: 4px;
+  height: 55px;
+  top: -173px;
+  left: 15px;
+}
+
+.cymbal-round {
+  position: absolute;
+  background: black;
+  height: 15px;
+  width: 15px;
+  top: -127px;
+  border-radius: 100%;
+  left: -2px;
+  z-index: 9999;
+}
+
+.cymbal-stand {
+  position: absolute;
+  background: silver;
+  box-sizing: border-box;
+  border: 3px solid black;
+  top: -123px;
+  width: 9px;
+  height: 165px;
+}
+
+.cymbal-leg-one {
+  position: absolute;
+  background: silver;
+  border: 3px solid black;
+  rotate: 60deg;
+  box-sizing: border-box;
+  top: 30px;
+  left: -19px;
+  height: 45px;
+  width: 9px;
+}
+
+.cymbal-leg-two {
+  position: absolute;
+  background: silver;
+  border: 3px solid black;
+  rotate: 120deg;
+  box-sizing: border-box;
+  top: 30px;
+  left: 19px;
+  height: 45px;
+  width: 9px;
+}
+
+.tom-drum {
+  position: absolute;
+  left: -145px;
+  top: -235px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.tom-drum-top {
+  position: absolute;
+  height: 10px;
+  background-color: silver;
+  border: 3px solid black;
+  box-sizing: border-box;
+  width: 120px;
+  top: -40px
+}
+
+.tom-drum-body {
+  position: absolute;
+  height: 90px;
+  background-color: silver;
+  border: 3px solid black;
+  box-sizing: border-box;
+  width: 110px;
+  top: -33px;
+  left: 5px;
+}
+
+.tom-drum-bottom {
+  position: absolute;
+  height: 10px;
+  background-color: silver;
+  border: 3px solid black;
+  box-sizing: border-box;
+  width: 120px;
+  top: 54px;
+  z-index: 50;
+}
+
+.tom-drum-left-leg {
+  position: absolute;
+  height: 25px;
+  background-color: silver;
+  border: 3px solid black;
+  box-sizing: border-box;
+  width: 5px;
+  top: 54px;
+  left: 5px;
+  z-index: 1;
+}
+
+.tom-drum-right-leg {
+  position: absolute;
+  height: 25px;
+  background-color: silver;
+  border: 3px solid black;
+  box-sizing: border-box;
+  width: 5px;
+  top: 54px;
+  left: 108px;
+  z-index: 1;
+}
