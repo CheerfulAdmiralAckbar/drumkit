@@ -5,6 +5,8 @@ const tomdrum = document.getElementById('tom-drum');
 
 const roundDrum = document.getElementById('round-drum');
 
+const snareDrum = document.getElementById('snare-drum');
+
 // Global check to see whether clicking the drum should play drum or kick, alternates based on previous sound played.
 let playBoomSound = true;
 
@@ -38,4 +40,9 @@ roundDrum.addEventListener('click', () => {
   
   // Changes playBoomSound to the opposite of what the boolean currently is.
   playBoomSound = !playBoomSound;
+});
+
+snareDrum.addEventListener('click', () => {
+  const snareSound = new Audio('./sounds/snare.wav');
+  snareSound.play();
 });
