@@ -1,0 +1,18 @@
+body {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal; 
+}
+
+.drumkit-wrapper {
+  width: 100%;
+  max-width: 1800px;
+  margin: auto;
+  height: 100vh;
+}
+
+
+.drumkit-header h2 {
+  font-size: 65px;
+  text-align: center;
+}
