@@ -10,12 +10,12 @@ const snareDrum = document.getElementById('snare-drum');
 // hiHat whole element and top-plate-class to animate the openHat animation
 const hiHat = document.getElementById('hihat');
 const hiHatTopPlate = document.querySelector('.hihat-top-plate');
+const hiHatBottomPlate = document.querySelector('.hihat-bottom-plate');
 
 // Global check to see whether clicking the drum should play drum or kick, alternates based on previous sound played.
 let playBoomSound = true;
 
 cymbal.addEventListener('click', () => {
-  // starting new audo inside event listener lets auto play multiple times instead of waiting to end
   const rideSound = new Audio('./sounds/ride.wav');
   rideSound.play();
 
@@ -27,7 +27,6 @@ cymbal.addEventListener('click', () => {
 });
 
 tomdrum.addEventListener('click', () => {
-  // starting new audo inside event listener lets auto play multiple times instead of waiting to end
   const tomSound = new Audio('./sounds/tom.wav');
   tomSound.play();
 });
@@ -42,7 +41,6 @@ roundDrum.addEventListener('click', () => {
     kickSound.play();
   }
   
-  // Changes playBoomSound to the opposite of what the boolean currently is.
   playBoomSound = !playBoomSound;
 });
 
@@ -59,15 +57,21 @@ hiHat.addEventListener('click', () => {
   if (hiHatClickCount < 4) {
     const hiHatSound = new Audio('./sounds/hihat.wav');
     hiHatSound.play();
+
+    hiHatTopPlate.classList.add('tilted');
+    hiHatBottomPlate.classList.add('tilted');
+
+    setTimeout(() => {
+      hiHatTopPlate.classList.remove('tilted');
+      hiHatBottomPlate.classList.remove('tilted');
+    }, 200);
   } else {
     const openHatSound = new Audio('./sounds/openhat.wav');
     openHatSound.play();
 
-    // Add class to animate top plate raising
     hiHatTopPlate.classList.add('raised');
 
     setTimeout(() => {
-      // Remove class after 500ms to animate it lowering
       hiHatTopPlate.classList.remove('raised');
     }, 500);
 
@@ -87,19 +91,44 @@ const tinkButton = document.getElementById('tink-button');
 const tomButton = document.getElementById('tom-button');
 
 document.addEventListener('keydown', (event) => {
-  console.log(`Event Key ${event.key}`)
+  console.log(`Event Key ${event.key}`);
   switch (event.key) {
-    case "a":
+    case "a": // Boom
       const boomAudio = new Audio('./sounds/boom.wav');
       boomAudio.play();
       break;
-    case "s":
+    case "s": // Clap
       const clapAudio = new Audio('./sounds/clap.wav');
       clapAudio.play();
       break;
-    case "d":
+    case "d": // HiHat
       const hihatAudio = new Audio('./sounds/hihat.wav');
       hihatAudio.play();
+
+      hiHatTopPlate.classList.add('tilted');
+      hiHatBottomPlate.classList.add('tilted');
+  
+      setTimeout(() => {
+        hiHatTopPlate.classList.remove('tilted');
+        hiHatBottomPlate.classList.remove('tilted');
+      }, 200);
+      break;
+    case "f": // Kick
+      const kickAudio = new Audio('./sounds/kick.wav');
+      kickAudio.play();
+      break;
+    case "g": // OpenHat
+      const openhatAudio = new Audio('./sounds/openhat.wav');
+      openhatAudio.play();
+      hiHatTopPlate.classList.add('raised');
+
+      setTimeout(() => {
+        hiHatTopPlate.classList.remove('raised');
+      }, 500);
+      break;
+    case "h": // Ride
+      const rideAudio = new Audio('./sounds/ride.wav');
+      rideAudio.play();
 
       cymbalMain.classList.add('rotated');
 
@@ -107,27 +136,15 @@ document.addEventListener('keydown', (event) => {
         cymbalMain.classList.remove('rotated');
       }, 200);
       break;
-    case "f":
-      const kickAudio = new Audio('./sounds/kick.wav');
-      kickAudio.play();
-      break;
-    case "g":
-      const openhatAudio = new Audio('./sounds/openhat.wav');
-      openhatAudio.play();
-      break;
-    case "h":
-      const rideAudio = new Audio('./sounds/ride.wav');
-      rideAudio.play();
-      break;
-    case "j":
+    case "j": // Snare
       const snareAudio = new Audio('./sounds/snare.wav');
       snareAudio.play();
       break;
-    case "k":
+    case "k": // Tink
       const tinkAudio = new Audio('./sounds/tink.wav');
       tinkAudio.play();
       break;
-    case "l":
+    case "l": // Tom
       const tomAudio = new Audio('./sounds/tom.wav');
       tomAudio.play();
       break;

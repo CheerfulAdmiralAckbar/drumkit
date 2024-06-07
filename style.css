@@ -41,11 +41,16 @@ body {
   border-radius: 4px;
 }
 
+.drumkit-visual-wrapper {
+  max-width: 1200px;
+  margin: auto;
+}
+
 .drumkit-visual {
   margin: 10px;
   position: absolute;
   top: 70%;
-  left: 43%;
+  left: 47%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -481,6 +486,8 @@ body {
   top: -180px;
 }
 
+/* Animations for drumkit equipment */
+
 @keyframes raiseHiHat {
   0% {
     top: -347px;
@@ -494,4 +501,20 @@ body {
 }
 .hihat-top-plate.raised {
   animation: raiseHiHat 0.5s ease-in-out;
+}
+
+@keyframes tiltHiHat {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+.hihat-top-plate.tilted, .hihat-bottom-plate.tilted {
+  animation: tiltHiHat 0.2s ease-in-out;
 }
