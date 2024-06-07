@@ -7,6 +7,10 @@ const roundDrum = document.getElementById('round-drum');
 
 const snareDrum = document.getElementById('snare-drum');
 
+// hiHat whole element and top-plate-class to animate the openHat animation
+const hiHat = document.getElementById('hihat');
+const hiHatTopPlate = document.querySelector('.hihat-top-plate');
+
 // Global check to see whether clicking the drum should play drum or kick, alternates based on previous sound played.
 let playBoomSound = true;
 
@@ -45,4 +49,28 @@ roundDrum.addEventListener('click', () => {
 snareDrum.addEventListener('click', () => {
   const snareSound = new Audio('./sounds/snare.wav');
   snareSound.play();
+});
+
+let hiHatClickCount = 0;
+
+hiHat.addEventListener('click', () => {
+  hiHatClickCount++;
+
+  if (hiHatClickCount < 3) {
+    const hiHatSound = new Audio('./sounds/hihat.wav');
+    hiHatSound.play();
+  } else {
+    const openHatSound = new Audio('./sounds/openhat.wav');
+    openHatSound.play();
+
+    // Add class to animate top plate raising
+    hiHatTopPlate.classList.add('raised');
+
+    setTimeout(() => {
+      // Remove class after 500ms to animate it lowering
+      hiHatTopPlate.classList.remove('raised');
+    }, 500);
+
+    hiHatClickCount = 0;
+  }
 });
