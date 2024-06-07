@@ -56,7 +56,7 @@ let hiHatClickCount = 0;
 hiHat.addEventListener('click', () => {
   hiHatClickCount++;
 
-  if (hiHatClickCount < 3) {
+  if (hiHatClickCount < 4) {
     const hiHatSound = new Audio('./sounds/hihat.wav');
     hiHatSound.play();
   } else {
@@ -72,5 +72,66 @@ hiHat.addEventListener('click', () => {
     }, 500);
 
     hiHatClickCount = 0;
+  }
+});
+
+// Button Area
+const boomButton = document.getElementById('boom-button');
+const clapButton = document.getElementById('clap-button');
+const hihatButton = document.getElementById('hihat-button');
+const kickButton = document.getElementById('kick-button');
+const openhatButton = document.getElementById('openhat-button');
+const rideButton = document.getElementById('ride-button');
+const snareButton = document.getElementById('snare-button');
+const tinkButton = document.getElementById('tink-button');
+const tomButton = document.getElementById('tom-button');
+
+document.addEventListener('keydown', (event) => {
+  console.log(`Event Key ${event.key}`)
+  switch (event.key) {
+    case "a":
+      const boomAudio = new Audio('./sounds/boom.wav');
+      boomAudio.play();
+      break;
+    case "s":
+      const clapAudio = new Audio('./sounds/clap.wav');
+      clapAudio.play();
+      break;
+    case "d":
+      const hihatAudio = new Audio('./sounds/hihat.wav');
+      hihatAudio.play();
+
+      cymbalMain.classList.add('rotated');
+
+      setTimeout(() => {
+        cymbalMain.classList.remove('rotated');
+      }, 200);
+      break;
+    case "f":
+      const kickAudio = new Audio('./sounds/kick.wav');
+      kickAudio.play();
+      break;
+    case "g":
+      const openhatAudio = new Audio('./sounds/openhat.wav');
+      openhatAudio.play();
+      break;
+    case "h":
+      const rideAudio = new Audio('./sounds/ride.wav');
+      rideAudio.play();
+      break;
+    case "j":
+      const snareAudio = new Audio('./sounds/snare.wav');
+      snareAudio.play();
+      break;
+    case "k":
+      const tinkAudio = new Audio('./sounds/tink.wav');
+      tinkAudio.play();
+      break;
+    case "l":
+      const tomAudio = new Audio('./sounds/tom.wav');
+      tomAudio.play();
+      break;
+    default:
+      break;
   }
 });
